@@ -22,7 +22,6 @@
         <a href="#portfolio">Platform</a>
         <a href="#services">Services</a>
         <a href="#founders">For Founders</a>
-        <a href="#research">Research</a>
         <a href="#contact" class="nav__cta">Contact</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -34,7 +33,6 @@
       <a href="#portfolio">Platform</a>
       <a href="#services">Services</a>
       <a href="#founders">For Founders</a>
-      <a href="#research">Research</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -64,16 +62,12 @@
       <div class="container">
         <div class="stats__grid">
           <div class="stat">
-            <span class="stat__num">2</span>
-            <span class="stat__label">Operating Companies</span>
-          </div>
-          <div class="stat">
             <span class="stat__num">100+</span>
             <span class="stat__label">Countries Served</span>
           </div>
           <div class="stat">
             <span class="stat__num">1996</span>
-            <span class="stat__label">Earliest Founding</span>
+            <span class="stat__label">Earliest Founding Company</span>
           </div>
           <div class="stat">
             <span class="stat__num">3</span>
@@ -176,6 +170,8 @@
             <a href="#" class="card__link">Visit destroydrive.com</a>
           </article>
         </div>
+
+        <p class="cards__note">Companies operated / invested previously</p>
       </div>
     </section>
 
@@ -291,55 +287,6 @@
       </div>
     </section>
 
-    <!-- ============ RESEARCH ============ -->
-    <section class="research" id="research">
-      <div class="container">
-        <p class="eyebrow">Research Lab</p>
-        <h2 class="section__title section__title--light">Field notes from operating the platform.</h2>
-        <p class="section__lead section__lead--light">
-          Practical white papers from across our companies on third party maintenance, cloud strategy,
-          data handling, and the economics and ESG impact of modern IT services.
-        </p>
-
-        <div class="papers">
-          <a class="paper" href="https://www.kintarra.com/_files/ugd/52c648_dca2cdc732fe4217b222c80fa0bf4a10.pdf" target="_blank" rel="noopener">
-            <div class="paper__body">
-              <span class="paper__kind">White Paper</span>
-              <h3 class="paper__title">Third Party Maintenance Market</h3>
-              <p class="paper__desc">
-                The key drivers behind the growing demand for third-party maintenance, including
-                cost-effectiveness, increased IT complexity, and the need for customized solutions,
-                plus where the TPM market is heading in digital transformation.
-              </p>
-            </div>
-            <span class="paper__cta">Download PDF &rarr;</span>
-          </a>
-          <a class="paper" href="https://www.kintarra.com/_files/ugd/52c648_6f256304c13541a49958bf65cda1bfe9.pdf" target="_blank" rel="noopener">
-            <div class="paper__body">
-              <span class="paper__kind">White Paper</span>
-              <h3 class="paper__title">Public vs Private Cloud</h3>
-              <p class="paper__desc">
-                A practical comparison of public and private cloud models, weighing cost, control,
-                security, and performance to help mid-market IT leaders choose the right mix.
-              </p>
-            </div>
-            <span class="paper__cta">Download PDF &rarr;</span>
-          </a>
-          <a class="paper" href="https://www.kintarra.com/_files/ugd/52c648_bcf468768b464cee929761563195f463.pdf" target="_blank" rel="noopener">
-            <div class="paper__body">
-              <span class="paper__kind">White Paper</span>
-              <h3 class="paper__title">Hardware Dumping in Africa</h3>
-              <p class="paper__desc">
-                The global flow of discarded IT hardware, the environmental and data-security risks
-                it creates, and the case for responsible, certified IT asset disposition.
-              </p>
-            </div>
-            <span class="paper__cta">Download PDF &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ CONTACT CTA ============ -->
     <section class="cta" id="contact">
       <div class="container cta__inner">
@@ -379,7 +326,6 @@
           <a href="#thesis">Our thesis</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#founders">For founders</a>
-          <a href="#research">Research Lab</a>
         </div>
         <div class="footer__col">
           <h4>Companies</h4>
@@ -398,6 +344,17 @@
       <p>Strategic IT companies, operated with intent.</p>
     </div>
   </footer>
+
+  <!-- Theme switcher (temporary tool for choosing the palette) -->
+  <div class="theme-switch" id="themeSwitch" role="group" aria-label="Choose theme">
+    <span class="theme-switch__label">Theme</span>
+    <div class="theme-switch__btns">
+      <button type="button" data-set-theme="dark" title="Whole page dark">Dark</button>
+      <button type="button" data-set-theme="midnight" title="Split, vivid violet">Midnight Original</button>
+      <button type="button" data-set-theme="midnight2" title="Split, indigo-violet">Midnight 2</button>
+      <button type="button" data-set-theme="midnight3" title="Split, electric magenta">Midnight 3</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

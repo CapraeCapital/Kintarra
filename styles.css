@@ -1,21 +1,97 @@
 /* ============ TOKENS ============ */
 :root {
-  --navy:        #0d1623;   /* deep base */
-  --navy-2:      #111c2e;   /* nav / footer panels */
-  --navy-3:      #16223a;   /* stat cells, badges */
-  --cream:       #f4f2ea;   /* light sections */
-  --cream-deep:  #ece8dc;   /* alt light section */
-  --gold:        #c2a45e;
-  --gold-soft:   #cdb985;
-  --ink:         #1c2433;   /* dark text on cream */
-  --ink-soft:    #4a5365;   /* muted text on cream */
-  --light:       #e7ebf2;   /* text on navy */
-  --light-soft:  #9aa6b8;   /* muted text on navy */
-  --line-light:  rgba(28, 36, 51, .14);
-  --line-dark:   rgba(255, 255, 255, .10);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans:  "Inter", system-ui, -apple-system, sans-serif;
   --maxw: 1180px;
+}
+
+/* ---- MIDNIGHT ORIGINAL (default) — split light/dark, vivid violet ---- */
+:root,
+[data-theme="midnight"] {
+  --navy:        #08060d;   /* hero / stats / portfolio / cta / footer stay near-black */
+  --navy-2:      #100a1a;
+  --navy-3:      #1a1029;
+  --cream:       #f6f2fb;   /* thesis / services / founders turn light */
+  --cream-deep:  #ece3f6;
+  --gold:        #a855f7;   /* accent on dark bg */
+  --gold-soft:   #c9a0fb;
+  --accent-ink:  #8b2fc9;   /* accent on light bg (readable) */
+  --accent-fg:   #ffffff;
+  --accent-glow: rgba(168, 85, 247, .20);
+  --card-bg:     #150d24;   /* portfolio is dark → cards stay dark */
+  --ink:         #1d1230;   /* dark text on light sections */
+  --ink-soft:    #5a4d6e;
+  --light:       #ece7f5;   /* light text on dark sections */
+  --light-soft:  #9a8bb2;
+  --line-light:  rgba(29, 18, 48, .14);   /* dividers on light bg */
+  --line-dark:   rgba(255, 255, 255, .09); /* dividers on dark bg */
+  --nav-bg:      rgba(8, 6, 13, .92);
+}
+
+/* ---- DARK — the whole-page dark theme (no light sections) ---- */
+[data-theme="dark"] {
+  --navy:        #08060d;
+  --navy-2:      #100a1a;
+  --navy-3:      #1a1029;
+  --cream:       #0f0918;   /* "light" sections stay dark */
+  --cream-deep:  #140c20;
+  --gold:        #a855f7;
+  --gold-soft:   #c9a0fb;
+  --accent-ink:  #bd82f9;
+  --accent-fg:   #ffffff;
+  --accent-glow: rgba(168, 85, 247, .22);
+  --card-bg:     #150d24;
+  --ink:         #ece7f5;   /* text is light (dark sections) */
+  --ink-soft:    #9a8bb2;
+  --light:       #ece7f5;
+  --light-soft:  #9a8bb2;
+  --line-light:  rgba(255, 255, 255, .09);
+  --line-dark:   rgba(255, 255, 255, .09);
+  --nav-bg:      rgba(8, 6, 13, .92);
+}
+
+/* ---- MIDNIGHT 2 — split, cooler indigo-violet accent + blue-black darks ---- */
+[data-theme="midnight2"] {
+  --navy:        #070810;
+  --navy-2:      #0e1020;
+  --navy-3:      #171a30;
+  --cream:       #f2f4fb;   /* cool blue-white light sections */
+  --cream-deep:  #e5e8f5;
+  --gold:        #7c4dff;   /* indigo-violet */
+  --gold-soft:   #a98bff;
+  --accent-ink:  #5b3fd6;
+  --accent-fg:   #ffffff;
+  --accent-glow: rgba(124, 77, 255, .20);
+  --card-bg:     #131528;
+  --ink:         #191d33;
+  --ink-soft:    #515a75;
+  --light:       #e6e9f6;
+  --light-soft:  #93a0c2;
+  --line-light:  rgba(25, 29, 51, .14);
+  --line-dark:   rgba(255, 255, 255, .09);
+  --nav-bg:      rgba(7, 8, 16, .92);
+}
+
+/* ---- MIDNIGHT 3 — split, violet-magenta accent + cool-white light sections ---- */
+[data-theme="midnight3"] {
+  --navy:        #0c0716;
+  --navy-2:      #150b1f;
+  --navy-3:      #1f1330;
+  --cream:       #f6f3fb;   /* neutral cool lavender-white */
+  --cream-deep:  #ebe4f4;
+  --gold:        #bf4be8;   /* violet-magenta (less pink) */
+  --gold-soft:   #dca0f5;
+  --accent-ink:  #9b2fc9;
+  --accent-fg:   #ffffff;
+  --accent-glow: rgba(191, 75, 232, .20);
+  --card-bg:     #1d1230;
+  --ink:         #241335;
+  --ink-soft:    #63516e;
+  --light:       #f0e7f5;
+  --light-soft:  #a696b8;
+  --line-light:  rgba(36, 19, 53, .13);
+  --line-dark:   rgba(255, 255, 255, .10);
+  --nav-bg:      rgba(13, 7, 20, .92);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,7 +124,7 @@ img { max-width: 100%; }
   color: var(--gold);
   margin-bottom: 1.4rem;
 }
-.eyebrow--dark { color: #a8884a; }
+.eyebrow--dark { color: var(--accent-ink); }
 
 .section__title {
   font-family: var(--serif);
@@ -82,7 +158,7 @@ em { font-style: italic; color: var(--gold); }
 }
 .btn--gold {
   background: var(--gold);
-  color: var(--navy);
+  color: var(--accent-fg);
 }
 .btn--gold:hover { background: var(--gold-soft); }
 .btn--ghost {
@@ -97,7 +173,7 @@ em { font-style: italic; color: var(--gold); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 22, 35, .92);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-dark);
 }
@@ -115,7 +191,7 @@ em { font-style: italic; color: var(--gold); }
   text-decoration: none;
 }
 .logo--lg { font-size: 2rem; }
-.logo__kin   { color: var(--cream); }
+.logo__kin   { color: var(--light); }
 .logo__tarra { color: var(--gold); }
 
 .nav__links {
@@ -178,7 +254,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
 /* ============ HERO ============ */
 .hero {
   background:
-    radial-gradient(120% 90% at 80% -10%, rgba(194,164,94,.10), transparent 60%),
+    radial-gradient(120% 90% at 80% -10%, var(--accent-glow), transparent 60%),
     var(--navy);
   padding-top: clamp(5rem, 10vw, 8rem);
 }
@@ -188,7 +264,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-size: clamp(2.6rem, 7vw, 5rem);
   line-height: 1.04;
   letter-spacing: -.015em;
-  color: var(--cream);
+  color: var(--light);
   max-width: 16ch;
 }
 .hero__lead {
@@ -208,7 +284,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
 .stats { background: var(--navy); padding-top: 0; }
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid var(--line-dark);
 }
 .stat {
@@ -264,7 +340,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-size: .95rem;
   font-weight: 600;
   letter-spacing: .08em;
-  color: #a8884a;
+  color: var(--accent-ink);
   margin-bottom: 1.4rem;
 }
 .tcard__title {
@@ -296,12 +372,23 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   flex-direction: column;
   transition: border-color .2s ease, transform .2s ease;
 }
-.card:hover { border-color: rgba(194,164,94,.45); transform: translateY(-4px); }
+.card:hover { border-color: color-mix(in srgb, var(--gold) 55%, transparent); transform: translateY(-4px); }
+.cards__note {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-dark);
+  text-align: center;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--light-soft);
+}
 .card__name {
   font-family: var(--serif);
   font-weight: 600;
   font-size: 2.6rem;
-  color: var(--cream);
+  color: var(--light);
   line-height: 1;
 }
 .card__name .gold { color: var(--gold); }
@@ -411,7 +498,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #a8884a;
+  color: var(--accent-ink);
 }
 .svc__meta {
   font-size: .78rem;
@@ -433,7 +520,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #a8884a;
+  color: var(--accent-ink);
   margin-bottom: .7rem;
 }
 .svc__text { color: var(--ink-soft); font-size: .98rem; }
@@ -460,7 +547,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-size: .9rem;
   font-weight: 600;
   letter-spacing: .08em;
-  color: #a8884a;
+  color: var(--accent-ink);
   margin-bottom: 1rem;
 }
 .pillar__title {
@@ -524,7 +611,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
 /* ============ CTA ============ */
 .cta {
   background:
-    radial-gradient(100% 80% at 50% 0%, rgba(194,164,94,.10), transparent 60%),
+    radial-gradient(100% 80% at 50% 0%, var(--accent-glow), transparent 60%),
     var(--navy);
 }
 .cta__inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -533,7 +620,7 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   font-weight: 500;
   font-size: clamp(2.4rem, 5.5vw, 4rem);
   line-height: 1.08;
-  color: var(--cream);
+  color: var(--light);
   max-width: 16ch;
 }
 .cta__lead {
@@ -612,9 +699,9 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
 @media (max-width: 880px) {
   .nav__links { display: none; }
   .nav__toggle { display: flex; }
-  .stats__grid { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(2) { border-right: 0; }
-  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--line-dark); }
+  .stats__grid { grid-template-columns: 1fr; }
+  .stat { border-right: 0; border-bottom: 1px solid var(--line-dark); }
+  .stat:last-child { border-bottom: 0; }
   .thesis__grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
   .services__head { grid-template-columns: 1fr; gap: 1.4rem; }
@@ -634,4 +721,50 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   .card__facts > div { flex-direction: column; gap: .2rem; }
   .card__facts dd { text-align: left; }
   .svc-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ THEME SWITCHER (temporary chooser) ============ */
+.theme-switch {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  background: rgba(20, 12, 34, .92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+}
+.theme-switch__label {
+  display: block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #b9a9d6;
+  margin-bottom: 8px;
+}
+.theme-switch__btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.theme-switch button {
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 600;
+  color: #e6ddf5;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.theme-switch button:hover { background: rgba(255, 255, 255, .12); }
+.theme-switch button.is-active {
+  background: var(--gold);
+  color: var(--accent-fg);
+  border-color: var(--gold);
+}
+@media (max-width: 560px) {
+  .theme-switch { left: 12px; right: 12px; bottom: 12px; text-align: center; }
+  .theme-switch__btns { justify-content: center; }
 }
