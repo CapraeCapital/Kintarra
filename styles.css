@@ -1,97 +1,27 @@
-/* ============ TOKENS ============ */
+/* ============ TOKENS — split light/dark, indigo-violet accent ============ */
 :root {
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans:  "Inter", system-ui, -apple-system, sans-serif;
   --maxw: 1180px;
-}
 
-/* ---- MIDNIGHT ORIGINAL (default) — split light/dark, vivid violet ---- */
-:root,
-[data-theme="midnight"] {
-  --navy:        #08060d;   /* hero / stats / portfolio / cta / footer stay near-black */
-  --navy-2:      #100a1a;
-  --navy-3:      #1a1029;
-  --cream:       #f6f2fb;   /* thesis / services / founders turn light */
-  --cream-deep:  #ece3f6;
-  --gold:        #a855f7;   /* accent on dark bg */
-  --gold-soft:   #c9a0fb;
-  --accent-ink:  #8b2fc9;   /* accent on light bg (readable) */
-  --accent-fg:   #ffffff;
-  --accent-glow: rgba(168, 85, 247, .20);
-  --card-bg:     #150d24;   /* portfolio is dark → cards stay dark */
-  --ink:         #1d1230;   /* dark text on light sections */
-  --ink-soft:    #5a4d6e;
-  --light:       #ece7f5;   /* light text on dark sections */
-  --light-soft:  #9a8bb2;
-  --line-light:  rgba(29, 18, 48, .14);   /* dividers on light bg */
-  --line-dark:   rgba(255, 255, 255, .09); /* dividers on dark bg */
-  --nav-bg:      rgba(8, 6, 13, .92);
-}
-
-/* ---- DARK — the whole-page dark theme (no light sections) ---- */
-[data-theme="dark"] {
-  --navy:        #08060d;
-  --navy-2:      #100a1a;
-  --navy-3:      #1a1029;
-  --cream:       #0f0918;   /* "light" sections stay dark */
-  --cream-deep:  #140c20;
-  --gold:        #a855f7;
-  --gold-soft:   #c9a0fb;
-  --accent-ink:  #bd82f9;
-  --accent-fg:   #ffffff;
-  --accent-glow: rgba(168, 85, 247, .22);
-  --card-bg:     #150d24;
-  --ink:         #ece7f5;   /* text is light (dark sections) */
-  --ink-soft:    #9a8bb2;
-  --light:       #ece7f5;
-  --light-soft:  #9a8bb2;
-  --line-light:  rgba(255, 255, 255, .09);
-  --line-dark:   rgba(255, 255, 255, .09);
-  --nav-bg:      rgba(8, 6, 13, .92);
-}
-
-/* ---- MIDNIGHT 2 — split, cooler indigo-violet accent + blue-black darks ---- */
-[data-theme="midnight2"] {
-  --navy:        #070810;
+  --navy:        #070810;   /* hero / stats / portfolio / cta / footer (dark) */
   --navy-2:      #0e1020;
   --navy-3:      #171a30;
-  --cream:       #f2f4fb;   /* cool blue-white light sections */
+  --cream:       #f2f4fb;   /* thesis / services / founders (light) */
   --cream-deep:  #e5e8f5;
-  --gold:        #7c4dff;   /* indigo-violet */
+  --gold:        #7c4dff;   /* indigo-violet accent on dark bg */
   --gold-soft:   #a98bff;
-  --accent-ink:  #5b3fd6;
+  --accent-ink:  #5b3fd6;   /* accent on light bg (readable) */
   --accent-fg:   #ffffff;
   --accent-glow: rgba(124, 77, 255, .20);
-  --card-bg:     #131528;
-  --ink:         #191d33;
+  --card-bg:     #131528;   /* portfolio is dark → cards stay dark */
+  --ink:         #191d33;   /* dark text on light sections */
   --ink-soft:    #515a75;
-  --light:       #e6e9f6;
+  --light:       #e6e9f6;   /* light text on dark sections */
   --light-soft:  #93a0c2;
-  --line-light:  rgba(25, 29, 51, .14);
-  --line-dark:   rgba(255, 255, 255, .09);
+  --line-light:  rgba(25, 29, 51, .14);   /* dividers on light bg */
+  --line-dark:   rgba(255, 255, 255, .09); /* dividers on dark bg */
   --nav-bg:      rgba(7, 8, 16, .92);
-}
-
-/* ---- MIDNIGHT 3 — split, violet-magenta accent + cool-white light sections ---- */
-[data-theme="midnight3"] {
-  --navy:        #0c0716;
-  --navy-2:      #150b1f;
-  --navy-3:      #1f1330;
-  --cream:       #f6f3fb;   /* neutral cool lavender-white */
-  --cream-deep:  #ebe4f4;
-  --gold:        #bf4be8;   /* violet-magenta (less pink) */
-  --gold-soft:   #dca0f5;
-  --accent-ink:  #9b2fc9;
-  --accent-fg:   #ffffff;
-  --accent-glow: rgba(191, 75, 232, .20);
-  --card-bg:     #1d1230;
-  --ink:         #241335;
-  --ink-soft:    #63516e;
-  --light:       #f0e7f5;
-  --light-soft:  #a696b8;
-  --line-light:  rgba(36, 19, 53, .13);
-  --line-dark:   rgba(255, 255, 255, .10);
-  --nav-bg:      rgba(13, 7, 20, .92);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -721,50 +651,4 @@ section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
   .card__facts > div { flex-direction: column; gap: .2rem; }
   .card__facts dd { text-align: left; }
   .svc-grid { grid-template-columns: 1fr; }
-}
-
-/* ============ THEME SWITCHER (temporary chooser) ============ */
-.theme-switch {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 100;
-  background: rgba(20, 12, 34, .92);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, .14);
-  border-radius: 14px;
-  padding: 12px 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
-}
-.theme-switch__label {
-  display: block;
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: #b9a9d6;
-  margin-bottom: 8px;
-}
-.theme-switch__btns { display: flex; flex-wrap: wrap; gap: 6px; }
-.theme-switch button {
-  font-family: var(--sans);
-  font-size: .82rem;
-  font-weight: 600;
-  color: #e6ddf5;
-  background: rgba(255, 255, 255, .06);
-  border: 1px solid transparent;
-  border-radius: 9px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background .18s ease, color .18s ease, border-color .18s ease;
-}
-.theme-switch button:hover { background: rgba(255, 255, 255, .12); }
-.theme-switch button.is-active {
-  background: var(--gold);
-  color: var(--accent-fg);
-  border-color: var(--gold);
-}
-@media (max-width: 560px) {
-  .theme-switch { left: 12px; right: 12px; bottom: 12px; text-align: center; }
-  .theme-switch__btns { justify-content: center; }
 }
